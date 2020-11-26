@@ -20,7 +20,7 @@ public class Lotto extends BaseEntity {
 	/**
 	 * 
 	 */
-	Random random = new Random();
+	private Random random = new Random();
 
 	/**
 	 * 
@@ -167,6 +167,6 @@ public class Lotto extends BaseEntity {
 	 * @param drawNumber the drawNumber to set
 	 */
 	public static void setDrawNumber(Integer drawNumber) {
-		Lotto.drawNumber = --drawNumber;
+		Lotto.drawNumber = drawNumber - 1;
 	}
 }
