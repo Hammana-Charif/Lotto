@@ -6,14 +6,14 @@ This project is a little funny game for everyone.
 
 ## Project setup
 
-* Initialize new Java Project
+*Initialize new Java Project
 
 ````bash
 WorkSPace name : "Practicum"
 Project name : "Lotto"
 ````
 
-* Project structure
+*Project structure
 
 ````bash
 Lotto/
@@ -45,27 +45,18 @@ create table lotto
 (
     id             int auto_increment
         primary key,
-    label           varchar(255) null,
-    datetime       varchar(255) null
+    label           text(100),
+    datetime        datetime null
 )
     collate = utf8mb4_unicode_ci;
 
-create table doctrine_migration_versions
+create table ball
 (
-    version        varchar(191) not null
+    ball_id       int auto_increment
         primary key,
-    executed_at    datetime     null,
-    execution_time int          null
-)
-    collate = utf8_unicode_ci;
-
-create table draw
-(
-    id       int auto_increment
-        primary key,
-    label    varchar(180) not null,
+    ball_label    varchar(10) not null,
     constraint UNIQ_8D93D649E7927C74
-        unique (label)
+        unique (ball_label)
 )
     collate = utf8mb4_unicode_ci;
 ```
