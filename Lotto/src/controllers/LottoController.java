@@ -1,10 +1,11 @@
-package controller;
+package controllers;
 
 import entities.Lotto;
 import eventlisteners.EventListenerChecker;
 import eventlisteners.OnLottoInterfaceListener;
 import messages.LottoMessages;
 import services.builder.LottoBuilderService;
+import services.domains.LottoService;
 
 import java.util.Scanner; 
 
@@ -27,19 +28,30 @@ public class LottoController {
 
 	/**
 	 * 
+	 */
+	private LottoService lottoService = new LottoService();
+	
+	/**
+	 * 
 	 * @throws Exception
 	 */
-	public void play() throws Exception {
+	public void play(String name, int turns) throws Exception {
 		do {
 			LottoBuilderService lottoBuilder = new LottoBuilderService();
+			
 			lottoBuilder.setOnLottoInterfaceListener(new LottoMessages());
-			Lotto lotto = lottoBuilder.build("Le loto en folie");
+			Lotto lotto = lottoBuilder.build(name);
+			lottoService.insert(lotto);
+			
 			lotto.setOnLottoInterfaceListener(new LottoMessages());
 			lotto.draw();
+			
 			lotto.setOnLottoInterfaceListener(new LottoMessages());
 			lotto.additionalDraw();
+			
 			lotto.setOnLottoInterfaceListener(new LottoMessages());
 			lotto.reset();
+			
 			setOnLottoInterfaceListener(new LottoMessages());
 		} while (rePlay());
 	}
@@ -58,7 +70,33 @@ public class LottoController {
 			return false;
 		}
 	}
-
+	
+	/**
+	 * 
+	 * @throws Exception
+	 */
+	public void findAll() throws Exception {
+		lottoService.getAll();
+	}
+	
+	/**
+	 * 
+	 * @param id
+	 * @throws Exception
+	 */
+	public void findOneById(int id) throws Exception {
+		lottoService.getOneById(id);
+	}
+	
+	/**
+	 * 
+	 * @param name
+	 * @throws Exception
+	 */
+	public void findOneByName(String name) throws Exception {
+		lottoService.getOneByName(name);
+	}
+	
 	/**
 	 * @return the onLottoInterfaceListener
 	 */

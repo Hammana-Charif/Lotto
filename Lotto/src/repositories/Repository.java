@@ -1,8 +1,10 @@
 package repositories;
 
-import java.util.Enumeration;
-
-import datalayer.LottoContext;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import datalayers.LottoContext;
 import entities.BaseEntity;
 
 /**
@@ -12,8 +14,12 @@ import entities.BaseEntity;
  * @param <T>
  */
 public class Repository<T extends BaseEntity> implements RepositoryInterface<T> {
-
+	
 	protected LottoContext _lottoContext;
+	
+	public Repository() {
+		
+	}
 	
 	/**
 	 * 
@@ -27,7 +33,7 @@ public class Repository<T extends BaseEntity> implements RepositoryInterface<T> 
 	 * 
 	 */
 	@Override
-	public Enumeration<T> getAll() throws Exception {
+	public ResultSet getAll() throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -36,7 +42,7 @@ public class Repository<T extends BaseEntity> implements RepositoryInterface<T> 
 	 * 
 	 */
 	@Override
-	public T getSingleById(int Id) throws Exception {
+	public ResultSet getSingleById(int Id) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -45,7 +51,7 @@ public class Repository<T extends BaseEntity> implements RepositoryInterface<T> 
 	 * 
 	 */
 	@Override
-	public T getSingleByName(String name) throws Exception {
+	public ResultSet getSingleByName(String name) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -84,6 +90,18 @@ public class Repository<T extends BaseEntity> implements RepositoryInterface<T> 
 	public void save() throws Exception {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	protected Statement makeAStatement() throws Exception {
+		Connection connection = LottoContext.getInstance().getConnection();
+		Statement statement = connection.createStatement();
+		return statement;
+	}
+	
+	protected PreparedStatement makeAPrepareStatement(String request) throws Exception {
+		Connection connection = LottoContext.getInstance().getConnection();
+		PreparedStatement preparedStatement = connection.prepareStatement(request);
+		return preparedStatement;
 	}
 
 }

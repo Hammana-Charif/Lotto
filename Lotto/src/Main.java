@@ -1,6 +1,5 @@
 import java.io.IOException;
-
-import controller.LottoController;
+import controllers.LottoController;
 
 /**
  * 
@@ -12,16 +11,20 @@ public class Main {
 	/**
 	 * 
 	 * @param args
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public static void main(String[] args) throws Exception {
-		try {
-			LottoController lotto = new LottoController();
-			lotto.play();
-		} catch (IOException e){
-			throw new IOException("Erreur de saisie : " + e.getMessage());
-		} catch (Exception e) {
-			throw new Exception("Une erreur est survenue : " + e.getMessage());
+
+		try { 
+		LottoController lotto = new LottoController(); 
+		lotto.play("Le loto en furie", 6);
+		lotto.findAll();
+		lotto.findOneById(2);
+		lotto.findOneByName("Le loto en folie !");
+		} catch (IOException e) { 
+			throw new IOException("Erreur de saisie : " + e.getMessage()); 
+		} catch (Exception e) { 
+			throw new Exception("Une erreur est survenue : " + e.getMessage()); 
 		}
 	}
 }

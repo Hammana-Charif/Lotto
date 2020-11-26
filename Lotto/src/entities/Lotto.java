@@ -2,7 +2,6 @@ package entities;
 
 import java.util.ArrayList;
 import java.util.Random;
-
 import eventlisteners.EventListenerChecker;
 import eventlisteners.OnLottoInterfaceListener;
 

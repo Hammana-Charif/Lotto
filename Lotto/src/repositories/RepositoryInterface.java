@@ -1,7 +1,6 @@
 package repositories;
 
-import java.util.Enumeration;
-
+import java.sql.ResultSet;
 import entities.BaseEntity;
 
 /**
@@ -16,21 +15,21 @@ public interface RepositoryInterface<T extends BaseEntity>  {
 	 * 
 	 * @return
 	 */
-	Enumeration<T> getAll() throws Exception;
+	ResultSet getAll() throws Exception;
 	
 	/**
 	 * 
 	 * @param Id
 	 * @return
 	 */
-    T getSingleById(int Id) throws Exception;
+    ResultSet getSingleById(int Id) throws Exception;
     
     /**
      * 
      * @param name
      * @return
      */
-    T getSingleByName(String name) throws Exception;
+    ResultSet getSingleByName(String name) throws Exception;
     
     /**
      * 

@@ -2,6 +2,7 @@ package services.builder;
 
 import java.util.ArrayList;
 import entities.Ball;
+import services.domains.BallService;
 
 /**
  * 
@@ -24,6 +25,17 @@ public class BallBuilderService implements BuilderInterface<Object> {
 		}
 		abacus.forEach( (b) -> System.out.print(b.getLabel() + " "));
 		return abacus;
+	}
+	
+	/**
+	 * For set the "ball" table at the first time. Use it if you need drop and remake database :: "label" is unique.
+	 * @param ball
+	 * @throws Exception
+	 */
+	@SuppressWarnings("unused")
+	private void insert(Ball ball) throws Exception {
+		BallService ballService = new BallService();
+		ballService.insert(ball);
 	}
 
 	/**
