@@ -5,7 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import entities.Ball;
-import eventListeners.OnLottoInterfaceListener;
+import entities.Lotto;
+import eventlisteners.OnLottoInterfaceListener;
 
 /**
  * 
@@ -17,11 +18,11 @@ public class LottoMessages implements OnLottoInterfaceListener {
 	/**
 	 * 
 	 */
-	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 	@Override
 	public void onDraw(Ball ball) throws IOException {
-		System.out.println("\n\nLe numéro " + ball.get_label() + " a été tiré !");
+		System.out.println("\n\nLe numéro " + ball.getLabel() + " a été tiré !");
 		pressEnter();
 	}
 	
@@ -30,7 +31,7 @@ public class LottoMessages implements OnLottoInterfaceListener {
 	 */
 	@Override
 	public void onAdditionalDraw(Ball ball) throws IOException {
-		System.out.println("\n\nEt le numéro complémentaire est... le " + ball.get_label() + " !");
+		System.out.println("\n\nEt le numéro complémentaire est... le " + ball.getLabel() + " !");
 		pressEnter();
 	}
 
@@ -38,8 +39,8 @@ public class LottoMessages implements OnLottoInterfaceListener {
 	 * 
 	 */
 	@Override
-	public void onBuild() throws IOException {
-		System.out.println("\n\nBienvenu dans \"Le loto en folie\" ! On s'y amuse bien :)\n"
+	public void onBuild(Lotto lotto) throws IOException {
+		System.out.println("\n\nBienvenu dans \"" + lotto.getLabel() + "\" ! On s'y amuse bien :)\n"
 							+"_______________________________________________________________________\n"
 							+ "Il y a de beaux lots à gagner !\n"
 							+"-----------------------------------------------------------------------\n"

@@ -3,8 +3,8 @@ package entities;
 import java.util.ArrayList;
 import java.util.Random;
 
-import eventListeners.EventListenerChecker;
-import eventListeners.OnLottoInterfaceListener;
+import eventlisteners.EventListenerChecker;
+import eventlisteners.OnLottoInterfaceListener;
 
 /**
  * @author raikh
@@ -38,7 +38,16 @@ public class Lotto extends BaseEntity {
 	public Lotto() {
 
 	}
-
+	
+	/**
+	 * 
+	 * @param id
+	 * @param label
+	 */
+	public Lotto(String label) {
+		super(label);
+	}
+	
 	/**
 	 * 
 	 * @param abacus
@@ -49,11 +58,11 @@ public class Lotto extends BaseEntity {
 
 	/**
 	 * 
-	 * @param id
-	 * @param label
+	 * @param abacus
 	 */
-	public Lotto(String label) {
+	public Lotto(String label, ArrayList<Ball> abacus) {
 		super(label);
+		this.setAbacus(abacus);
 	}
 
 	/**
@@ -105,7 +114,7 @@ public class Lotto extends BaseEntity {
 			} else {
 				return draw(drawNumber);
 			}
-			abacus.forEach( (b) -> System.out.print(b.get_label() + " "));
+			abacus.forEach( (b) -> System.out.print(b.getLabel() + " "));
 		}
 		return abacus;
 	}
@@ -120,7 +129,7 @@ public class Lotto extends BaseEntity {
 			EventListenerChecker.check(getOnLottoInterfaceListener()).onAdditionalDraw(abacus.get(ballDraw));
 			abacus.remove(ballDraw);
 		}
-		abacus.forEach( (b) -> System.out.print(b.get_label() + " "));
+		abacus.forEach( (b) -> System.out.print(b.getLabel() + " "));
 	}
 
 	/**
@@ -158,6 +167,6 @@ public class Lotto extends BaseEntity {
 	 * @param drawNumber the drawNumber to set
 	 */
 	public static void setDrawNumber(Integer drawNumber) {
-		Lotto.drawNumber = drawNumber;
+		Lotto.drawNumber = --drawNumber;
 	}
 }

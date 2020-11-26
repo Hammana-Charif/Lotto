@@ -1,10 +1,11 @@
 package controller;
 
 import entities.Lotto;
-import eventListeners.EventListenerChecker;
-import eventListeners.OnLottoInterfaceListener;
+import eventlisteners.EventListenerChecker;
+import eventlisteners.OnLottoInterfaceListener;
 import messages.LottoMessages;
-import services.Builder.LottoBuilderService;
+import services.builder.LottoBuilderService;
+
 import java.util.Scanner; 
 
 /**
@@ -17,13 +18,13 @@ public class LottoController {
 	/**
 	 * 
 	 */
-	Scanner scanner = new Scanner(System.in);
+	private Scanner scanner = new Scanner(System.in);
 
 	/**
 	 * 
 	 */
 	private OnLottoInterfaceListener onLottoInterfaceListener;
-	
+
 	/**
 	 * 
 	 * @throws Exception
@@ -32,7 +33,7 @@ public class LottoController {
 		do {
 			LottoBuilderService lottoBuilder = new LottoBuilderService();
 			lottoBuilder.setOnLottoInterfaceListener(new LottoMessages());
-			Lotto lotto = lottoBuilder.build();
+			Lotto lotto = lottoBuilder.build("Le loto en folie");
 			lotto.setOnLottoInterfaceListener(new LottoMessages());
 			lotto.draw();
 			lotto.setOnLottoInterfaceListener(new LottoMessages());
@@ -53,10 +54,8 @@ public class LottoController {
 		if(scanner.next().equalsIgnoreCase("o")) {
 			for (int i = 0; i < 50; ++i) System.out.println();
 			return true;
-		} else if (scanner.next().equalsIgnoreCase("n")) {
-			return false;
 		} else {
-			throw new Exception("Saisie invalide.");
+			return false;
 		}
 	}
 

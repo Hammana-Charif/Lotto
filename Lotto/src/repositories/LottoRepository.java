@@ -1,6 +1,6 @@
 package repositories;
 
-import dataLayer.LottoContext;
+import datalayer.LottoContext;
 import entities.Lotto;
 
 /**

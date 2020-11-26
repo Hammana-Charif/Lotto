@@ -16,43 +16,43 @@ public interface RepositoryInterface<T extends BaseEntity>  {
 	 * 
 	 * @return
 	 */
-	Enumeration<T> GetAll() throws Exception;
+	Enumeration<T> getAll() throws Exception;
 	
 	/**
 	 * 
 	 * @param Id
 	 * @return
 	 */
-    T GetSingleById(int Id) throws Exception;
+    T getSingleById(int Id) throws Exception;
     
     /**
      * 
      * @param name
      * @return
      */
-    T GetSingleByName(String name) throws Exception;
+    T getSingleByName(String name) throws Exception;
     
     /**
      * 
      * @param obj
      */
-    void Insert(T obj) throws Exception;
+    void insert(T obj) throws Exception;
     
     /**
      * 
      * @param obj
      */
-    void Update(T obj) throws Exception;
+    void update(T obj) throws Exception;
     
     /**
      * 
      * @param obj
      */
-    void Delete(T obj) throws Exception;
+    void delete(T obj) throws Exception;
     
     /**
      * 
      * @throws Exception
      */
-    void Save() throws Exception;
+    void save() throws Exception;
 }

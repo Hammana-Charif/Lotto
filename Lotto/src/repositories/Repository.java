@@ -2,7 +2,7 @@ package repositories;
 
 import java.util.Enumeration;
 
-import dataLayer.LottoContext;
+import datalayer.LottoContext;
 import entities.BaseEntity;
 
 /**
@@ -27,7 +27,7 @@ public class Repository<T extends BaseEntity> implements RepositoryInterface<T> 
 	 * 
 	 */
 	@Override
-	public Enumeration<T> GetAll() throws Exception {
+	public Enumeration<T> getAll() throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -36,7 +36,7 @@ public class Repository<T extends BaseEntity> implements RepositoryInterface<T> 
 	 * 
 	 */
 	@Override
-	public T GetSingleById(int Id) throws Exception {
+	public T getSingleById(int Id) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -45,7 +45,7 @@ public class Repository<T extends BaseEntity> implements RepositoryInterface<T> 
 	 * 
 	 */
 	@Override
-	public T GetSingleByName(String name) throws Exception {
+	public T getSingleByName(String name) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -54,7 +54,7 @@ public class Repository<T extends BaseEntity> implements RepositoryInterface<T> 
 	 * 
 	 */
 	@Override
-	public void Insert(T obj) throws Exception {
+	public void insert(T obj) throws Exception {
 		// TODO Auto-generated method stub
 		
 	}
@@ -63,7 +63,7 @@ public class Repository<T extends BaseEntity> implements RepositoryInterface<T> 
 	 * 
 	 */
 	@Override
-	public void Update(T obj) throws Exception {
+	public void update(T obj) throws Exception {
 		// TODO Auto-generated method stub
 		
 	}
@@ -72,7 +72,7 @@ public class Repository<T extends BaseEntity> implements RepositoryInterface<T> 
 	 * 
 	 */
 	@Override
-	public void Delete(T obj) throws Exception {
+	public void delete(T obj) throws Exception {
 		// TODO Auto-generated method stub
 		
 	}
@@ -81,7 +81,7 @@ public class Repository<T extends BaseEntity> implements RepositoryInterface<T> 
 	 * 
 	 */
 	@Override
-	public void Save() throws Exception {
+	public void save() throws Exception {
 		// TODO Auto-generated method stub
 		
 	}

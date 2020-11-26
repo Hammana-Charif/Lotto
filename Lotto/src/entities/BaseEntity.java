@@ -34,28 +34,28 @@ public abstract class BaseEntity implements EntityInterface {
 	/**
 	 * @return the _id
 	 */
-	public int get_id() {
+	public int getId() {
 		return _id;
 	}
 
 	/**
 	 * @param _id the _id to set
 	 */
-	public void set_id(int _id) {
+	public void setId(int _id) {
 		this._id = _id;
 	}
 
 	/**
 	 * @return the _label
 	 */
-	public String get_label() {
+	public String getLabel() {
 		return _label;
 	}
 
 	/**
 	 * @param _label the _label to set
 	 */
-	public void set_label(String _label) {
+	public void setLabel(String _label) {
 		this._label = _label;
 	}
 }
