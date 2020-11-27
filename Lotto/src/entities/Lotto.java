@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import eventlisteners.EventListenerChecker;
 import eventlisteners.OnLottoInterfaceListener;
+import services.domains.BallService;
 
 /**
  * @author raikh
@@ -25,6 +26,11 @@ public class Lotto extends BaseEntity {
 	 * 
 	 */
 	private static Integer drawNumber;
+	
+	/**
+	 * 
+	 */
+	private BallService ballService = new BallService();
 
 	/**
 	 * 
@@ -84,7 +90,7 @@ public class Lotto extends BaseEntity {
 	 * @throws Exception
 	 */
 	public Object draw() throws Exception {
-		setDrawNumber(5);
+		setDrawNumber(6);
 		return routine(getDrawNumber());
 	}
 
@@ -109,6 +115,7 @@ public class Lotto extends BaseEntity {
 			int ballDraw = random.nextInt(abacus.size());
 			if (abacus.contains(abacus.get(ballDraw))) {
 				EventListenerChecker.check(getOnLottoInterfaceListener()).onDraw(abacus.get(ballDraw));
+				ballService.insertDraw(this, abacus.get(ballDraw));
 				abacus.remove(ballDraw);
 			} else {
 				return draw(drawNumber);
@@ -126,6 +133,7 @@ public class Lotto extends BaseEntity {
 		int ballDraw = random.nextInt(abacus.size());
 		if (abacus.contains(abacus.get(ballDraw))) {
 			EventListenerChecker.check(getOnLottoInterfaceListener()).onAdditionalDraw(abacus.get(ballDraw));
+			ballService.insertAdditionalDraw(this, abacus.get(ballDraw));
 			abacus.remove(ballDraw);
 		}
 		abacus.forEach( (b) -> System.out.print(b.getLabel() + " "));

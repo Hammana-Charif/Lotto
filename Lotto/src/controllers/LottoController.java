@@ -44,7 +44,7 @@ public class LottoController {
 			lottoService.insert(lotto);
 			
 			lotto.setOnLottoInterfaceListener(new LottoMessages());
-			lotto.draw();
+			lotto.draw(turns);
 			
 			lotto.setOnLottoInterfaceListener(new LottoMessages());
 			lotto.additionalDraw();

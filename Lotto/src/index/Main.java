@@ -1,3 +1,5 @@
+package index;
+
 import java.io.IOException;
 import controllers.LottoController;
 
@@ -17,9 +19,9 @@ public class Main {
 
 		try { 
 		LottoController lotto = new LottoController(); 
-		lotto.play("Le loto en furie", 6);
+		lotto.play("Le loto M2I", 6);
 		lotto.findAll();
-		lotto.findOneById(2);
+		lotto.findOneById(3);
 		lotto.findOneByName("Le loto en folie !");
 		} catch (IOException e) { 
 			throw new IOException("Erreur de saisie : " + e.getMessage()); 
